@@ -805,6 +805,9 @@ class Quaternion(Object3d):
         om = _conversions.qu2om(self.unit.data)
         return om
 
+    as_matrix = to_matrix  # Alias, so that the syntax complies with scipy.spatial.transform.Rotation
+    as_matrix.__doc__ = to_matrix.__doc__  # Copy docstring
+
     def to_axes_angles(self) -> AxAngle:
         r"""Return the unit quaternions as axis-angle vectors
         :cite:`rowenhorst2015consistent`.
